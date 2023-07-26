@@ -18,14 +18,16 @@ if (cluster.isPrimary) {
         for (let index = 0; index < 100; index++) {
             result += index
         }
+        console.log(`Proceso worker (${process.pid}): ${result}`)
         res.send(`Proceso worker (${process.pid}): ${result}`)
     })
 
     app.get('/complex', (req, res) => {
         let result = 0
-        for (let index = 0; index < 5e12; index++) {
+        for (let index = 0; index < 5e6; index++) {
             result += index
         }
+        console.log(`Proceso worker (${process.pid}): ${result}`)
         res.send(`Proceso worker (${process.pid}): ${result}`)
     })
 
